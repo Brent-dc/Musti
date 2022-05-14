@@ -7,7 +7,7 @@ panel = ""
 main_window = Tk("cat detector")
 test_url = r'C:\Users\brent\OneDrive\Bureaublad\classificatie\aanwezig\20220207_123451'
 print(test_url)
-ovr =  pickle.load(open("oneVsRest.mod", 'rb'))
+ovr =  pickle.load(open("ensemble.mod", 'rb'))
 #gui interaction
 def on_click():
     if(url_cat.get() == "https://ibb.co/p0fgwGG"):

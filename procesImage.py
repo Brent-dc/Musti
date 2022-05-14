@@ -19,7 +19,5 @@ def procesImage(img, timestamp, model):
         pix_val_flat.append(timestamp.hour)
         data.append(pix_val_flat)
         dfDataTemp =pd.DataFrame(data)
-        res = model.predict_proba(dfDataTemp)
-        print(res)
         res = model.predict(dfDataTemp)
         return res
