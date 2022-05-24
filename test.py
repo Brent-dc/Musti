@@ -9,11 +9,11 @@ from sklearn.model_selection import train_test_split
 from datetime import datetime
 from procesImage import procesImage
 import pickle
-ovr =  pickle.load(open("oneVsRest.mod", 'rb'))
+ovr =  pickle.load(open("ensemble.mod", 'rb'))
 
 
 path =r'C:\Users\brent\OneDrive\Bureaublad\classificatie'
-for word in ("niets", "aanwezig", "buiten"):
+for word in ("buiten", "aanwezig"):
     images = os.listdir(rf"{path}\{word}")
     
     for im in images:
