@@ -10,7 +10,7 @@ import time
 panel = ""
 main_window = Tk("cat detector")
 
-ovr =  pickle.load(open("ensemble.mod", 'rb'))
+ovr =  pickle.load(open("./supportVectorMachine_1.mod", 'rb'))
 #gui interaction
 
 def on_click():

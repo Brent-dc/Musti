@@ -9,18 +9,15 @@ from sklearn.metrics import confusion_matrix
 import pickle
 
 
-data = pd.read_pickle("data_file_w_ts.pkl")
-target = pd.read_pickle("target_file_w_ts.pkl")
+data = pd.read_pickle("../data_file_w_ts_kat_al.pkl")
+target = pd.read_pickle("../target_file_w_ts_kat_al.pkl")
 print(data.iloc[ :, -1:])
 print(target)
 X_train, X_test, y_train, y_test = train_test_split(data, target, test_size = 0.2, random_state = 43)
 print(X_train.values.ravel())
 print(y_train.values.ravel())
-log = LogisticRegression(max_iter= 4000)
-param = {'penalty': ['l1','l2', 'elasticnet' ], 'dual':[True, False] }
-grid = GridSearchCV(log, param)
-grid.fit(X_train, y_train.values.ravel())
-ovr = OneVsRestClassifier(grid)
+log = LogisticRegression(max_iter= 800)
+ovr = OneVsRestClassifier(log)
 
 ovr.fit(X_train, y_train.values.ravel())
 pred = ovr.predict(X_test)
